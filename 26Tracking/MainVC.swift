@@ -36,7 +36,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
     override func viewWillAppear(_ animated: Bool) {
         
         if SettingsData.sharedInstance.setTracking{
-            trackingTimer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(MainVC.saveCoordinates), userInfo: nil, repeats: true)
+            trackingTimer = Timer.scheduledTimer(timeInterval: 5, target:self, selector: #selector(MainVC.saveCoordinates), userInfo: nil, repeats: true)
         } else {
             if trackingTimer != nil {
             trackingTimer.invalidate()
@@ -89,13 +89,24 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
         do {
             
             let results = try context.fetch(fetchRequest)//try controller.performFetch()
-            for i in 0...results.count - 1 {
+            var i = 0
+            if results.count>0 {
+            repeat {
                 let resultsDate = results[i].timeStamp as NSDate?
                 let resultsLatitude = results[i].latitude as Double?
                 let resultsLongitude = results[i].longitude as Double?
-                print("\(resultsDate):\(resultsLatitude):\(resultsLongitude)")
-            
-            }
+                print("\(resultsDate):\(resultsLatitude):\(resultsLongitude):\(results.count)")
+                i+=1
+                
+                let pin = MKPointAnnotation()
+                
+                pin.coordinate.latitude = resultsLatitude!
+                pin.coordinate.longitude = resultsLongitude!
+                pin.title = "point\(i)"
+                mapViewOutlet.addAnnotation(pin)
+                
+            } while (i<results.count)
+         }
             
         } catch{
             
@@ -103,14 +114,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
             print("\(error)")
             
         }
-      
-        
-        /*let pin = MKPointAnnotation()
-        
-        //pin.coordinate = localCoordinate!
-        pin.title = "point\(1)"
-        mapViewOutlet.addAnnotation(pin)*/
-        
+ 
     }
     
     func saveCoordinates(){

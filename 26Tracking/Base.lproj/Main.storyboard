@@ -119,6 +119,7 @@
                     <connections>
                         <outlet property="settingsTableView" destination="uhe-6D-zvx" id="Ugi-gp-ZMk"/>
                         <segue destination="AIO-bH-CPb" kind="show" identifier="chooseSegue" id="Krs-Nc-kE0"/>
+                        <segue destination="axl-UL-fFq" kind="show" identifier="clearSegue" id="PNL-0l-j4v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2J-pl-bms" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -161,6 +162,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ouo-M0-MaZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2681" y="134"/>
+        </scene>
+        <!--Clear DataVC-->
+        <scene sceneID="H2z-XL-PY8">
+            <objects>
+                <viewController id="axl-UL-fFq" customClass="ClearDataVC" customModule="_6Tracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U2M-zc-Z1S"/>
+                        <viewControllerLayoutGuide type="bottom" id="kDE-1w-XlM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lwb-B2-hxr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5Q-5h-yDA" customClass="ClearButton" customModule="_6Tracking" customModuleProvider="target">
+                                <rect key="frame" x="115" y="301" width="127" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.8753569162" green="0.8753569162" blue="0.8753569162" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearButtonAction:" destination="axl-UL-fFq" eventType="touchUpInside" id="hTu-Ct-2kE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e9e-Tv-YK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2352.8000000000002" y="984.55772113943033"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dGO-db-JdC">

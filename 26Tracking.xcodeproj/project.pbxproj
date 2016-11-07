@@ -25,6 +25,8 @@
 		76B1A99E1DD090500024D60F /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1A99D1DD090500024D60F /* SettingsData.swift */; };
 		76B6DF351DD0EDA800E58072 /* TrackingTime+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6DF331DD0EDA800E58072 /* TrackingTime+CoreDataClass.swift */; };
 		76B6DF361DD0EDA800E58072 /* TrackingTime+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6DF341DD0EDA800E58072 /* TrackingTime+CoreDataProperties.swift */; };
+		76B6DF381DD1029100E58072 /* ClearDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6DF371DD1029100E58072 /* ClearDataVC.swift */; };
+		76B6DF3A1DD1039900E58072 /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6DF391DD1039900E58072 /* ClearButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		76B1A99D1DD090500024D60F /* SettingsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
 		76B6DF331DD0EDA800E58072 /* TrackingTime+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingTime+CoreDataClass.swift"; sourceTree = "<group>"; };
 		76B6DF341DD0EDA800E58072 /* TrackingTime+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingTime+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		76B6DF371DD1029100E58072 /* ClearDataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearDataVC.swift; sourceTree = "<group>"; };
+		76B6DF391DD1039900E58072 /* ClearButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 				76B171C51DCF1468003CD4B4 /* TrackingSwitchCell.xib */,
 				76B171CC1DCF186A003CD4B4 /* ControlCell.swift */,
 				76B171CD1DCF186A003CD4B4 /* ControlCell.xib */,
+				76B6DF391DD1039900E58072 /* ClearButton.swift */,
 			);
 			name = View;
 			path = ..;
@@ -178,6 +183,7 @@
 				76112E7B1DCE614300B4367B /* AppDelegate.swift */,
 				76112E7D1DCE614300B4367B /* MainVC.swift */,
 				7688E13E1DCF5EFB0027814F /* DateVC.swift */,
+				76B6DF371DD1029100E58072 /* ClearDataVC.swift */,
 			);
 			name = Controller;
 			path = ..;
@@ -350,7 +356,9 @@
 				76B1A99E1DD090500024D60F /* SettingsData.swift in Sources */,
 				76B171CE1DCF186A003CD4B4 /* ControlCell.swift in Sources */,
 				7688E13F1DCF5EFB0027814F /* DateVC.swift in Sources */,
+				76B6DF3A1DD1039900E58072 /* ClearButton.swift in Sources */,
 				76B6DF361DD0EDA800E58072 /* TrackingTime+CoreDataProperties.swift in Sources */,
+				76B6DF381DD1029100E58072 /* ClearDataVC.swift in Sources */,
 				76B171C31DCF0EB1003CD4B4 /* Slider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
