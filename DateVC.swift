@@ -17,7 +17,7 @@ class DateVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillDisappear(_ animated: Bool) {
-        let dateFormatter = DateFormatter()
+        //let dateFormatter = DateFormatter()
         /*dateFormatter.dateFormat = "dd MMM yyyy"
         let selectedDate = dateFormatter.string(from: datePicker.date)
         print("DATE:\(selectedDate)")

@@ -23,6 +23,10 @@
 		76B171CE1DCF186A003CD4B4 /* ControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B171CC1DCF186A003CD4B4 /* ControlCell.swift */; };
 		76B171CF1DCF186A003CD4B4 /* ControlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76B171CD1DCF186A003CD4B4 /* ControlCell.xib */; };
 		76B1A99E1DD090500024D60F /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B1A99D1DD090500024D60F /* SettingsData.swift */; };
+		76B6DF2F1DD0E9AE00E58072 /* TrackingTime+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6DF2B1DD0E9AE00E58072 /* TrackingTime+CoreDataClass.swift */; };
+		76B6DF301DD0E9AE00E58072 /* TrackingTime+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6DF2C1DD0E9AE00E58072 /* TrackingTime+CoreDataProperties.swift */; };
+		76B6DF311DD0E9AE00E58072 /* TrackingDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6DF2D1DD0E9AE00E58072 /* TrackingDate+CoreDataClass.swift */; };
+		76B6DF321DD0E9AE00E58072 /* TrackingDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6DF2E1DD0E9AE00E58072 /* TrackingDate+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,10 @@
 		76B171CC1DCF186A003CD4B4 /* ControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCell.swift; sourceTree = "<group>"; };
 		76B171CD1DCF186A003CD4B4 /* ControlCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlCell.xib; sourceTree = "<group>"; };
 		76B1A99D1DD090500024D60F /* SettingsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
+		76B6DF2B1DD0E9AE00E58072 /* TrackingTime+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingTime+CoreDataClass.swift"; sourceTree = "<group>"; };
+		76B6DF2C1DD0E9AE00E58072 /* TrackingTime+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingTime+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		76B6DF2D1DD0E9AE00E58072 /* TrackingDate+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingDate+CoreDataClass.swift"; sourceTree = "<group>"; };
+		76B6DF2E1DD0E9AE00E58072 /* TrackingDate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +152,7 @@
 		76B171BE1DCF0E06003CD4B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				76B6DF221DD0D4FE00E58072 /* Generated */,
 				76112E821DCE614300B4367B /* _6Tracking.xcdatamodeld */,
 				76B1A99D1DD090500024D60F /* SettingsData.swift */,
 			);
@@ -186,6 +195,17 @@
 			);
 			name = Resources;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		76B6DF221DD0D4FE00E58072 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				76B6DF2B1DD0E9AE00E58072 /* TrackingTime+CoreDataClass.swift */,
+				76B6DF2C1DD0E9AE00E58072 /* TrackingTime+CoreDataProperties.swift */,
+				76B6DF2D1DD0E9AE00E58072 /* TrackingDate+CoreDataClass.swift */,
+				76B6DF2E1DD0E9AE00E58072 /* TrackingDate+CoreDataProperties.swift */,
+			);
+			name = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,10 +351,14 @@
 				76B171BD1DCF0D3F003CD4B4 /* SettingsVC.swift in Sources */,
 				76112E7C1DCE614300B4367B /* AppDelegate.swift in Sources */,
 				76112E841DCE614300B4367B /* _6Tracking.xcdatamodeld in Sources */,
+				76B6DF2F1DD0E9AE00E58072 /* TrackingTime+CoreDataClass.swift in Sources */,
 				76B171C61DCF1468003CD4B4 /* TrackingSwitchCell.swift in Sources */,
+				76B6DF321DD0E9AE00E58072 /* TrackingDate+CoreDataProperties.swift in Sources */,
 				76B1A99E1DD090500024D60F /* SettingsData.swift in Sources */,
 				76B171CE1DCF186A003CD4B4 /* ControlCell.swift in Sources */,
+				76B6DF311DD0E9AE00E58072 /* TrackingDate+CoreDataClass.swift in Sources */,
 				7688E13F1DCF5EFB0027814F /* DateVC.swift in Sources */,
+				76B6DF301DD0E9AE00E58072 /* TrackingTime+CoreDataProperties.swift in Sources */,
 				76B171C31DCF0EB1003CD4B4 /* Slider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

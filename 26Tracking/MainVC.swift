@@ -19,7 +19,10 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
     var sliderValue: Int? = nil
     var locationManager:CLLocationManager? = nil
     var trackingTimer: Timer!
-    
+    ///
+    var trackingTime: TrackingTime!
+    var trackingDate: TrackingDate!
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
         ConstraintSlider()
@@ -39,6 +42,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
                }
         }
         //saveCoordinates()
+        
     }
     
     @IBAction func sliderSlide(_ sender: UISlider) {
@@ -98,6 +102,15 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
             print("Date:" + String(describing: date))
             print("AssignedDate:" + String(describing: SettingsData.sharedInstance.assignedDate))
             print("Switch_state:\(SettingsData.sharedInstance.setTracking)")
+            
+            trackingDate.date = SettingsData.sharedInstance.assignedDate
+            trackingTime.timeStamp = date
+            trackingTime.latitude = Double((localCoordinate?.latitude)!)
+            trackingTime.longitude = Double((localCoordinate?.longitude)!)
+            trackingTime.toTrackingDate = trackingDate
+            ad.saveContext()
+            
+            
         }
     }
 }
