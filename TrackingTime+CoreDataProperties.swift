@@ -19,6 +19,5 @@ extension TrackingTime {
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
     @NSManaged public var timeStamp: NSDate?
-    @NSManaged public var toTrackingDate: TrackingDate?
 
 }

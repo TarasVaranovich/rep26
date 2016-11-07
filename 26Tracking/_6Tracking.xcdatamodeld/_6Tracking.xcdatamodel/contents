@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="TrackingDate" representedClassName="TrackingDate" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="toTrackingTime" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrackingTime" inverseName="toTrackingDate" inverseEntity="TrackingTime" syncable="YES"/>
-    </entity>
     <entity name="TrackingTime" representedClassName="TrackingTime" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="toTrackingDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TrackingDate" inverseName="toTrackingTime" inverseEntity="TrackingDate" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TrackingDate" positionX="151" positionY="9" width="128" height="75"/>
-        <element name="TrackingTime" positionX="-54" positionY="0" width="126" height="105"/>
+        <element name="TrackingTime" positionX="-54" positionY="0" width="126" height="90"/>
     </elements>
 </model>

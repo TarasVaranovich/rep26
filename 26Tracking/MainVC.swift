@@ -13,6 +13,7 @@ import CoreData
 
 class MainVC: UIViewController , CLLocationManagerDelegate{
     
+    @IBOutlet weak var mapViewOutlet: MKMapView!
     @IBOutlet weak var sliderOutlet: UISlider!
     @IBOutlet weak var labelOutlet: UILabel!
     var K : CGFloat = 0.7
@@ -21,7 +22,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
     var trackingTimer: Timer!
     ///
     var trackingTime: TrackingTime!
-    var trackingDate: TrackingDate!
+   
     //
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
                }
         }
         //saveCoordinates()
-        
+        getCoordinates()
     }
     
     @IBAction func sliderSlide(_ sender: UISlider) {
@@ -81,6 +82,36 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
         view.contentMode = .redraw
     }
     
+    func getCoordinates(){
+        let fetchRequest: NSFetchRequest<TrackingTime> = TrackingTime.fetchRequest()
+        //let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context ,sectionNameKeyPath: nil , cacheName:nil)
+        
+        do {
+            
+            let results = try context.fetch(fetchRequest)//try controller.performFetch()
+            for i in 0...results.count - 1 {
+                let resultsDate = results[i].timeStamp as NSDate?
+                let resultsLatitude = results[i].latitude as Double?
+                let resultsLongitude = results[i].longitude as Double?
+                print("\(resultsDate):\(resultsLatitude):\(resultsLongitude)")
+            
+            }
+            
+        } catch{
+            
+            let error = error as NSError
+            print("\(error)")
+            
+        }
+      
+        
+        /*let pin = MKPointAnnotation()
+        
+        //pin.coordinate = localCoordinate!
+        pin.title = "point\(1)"
+        mapViewOutlet.addAnnotation(pin)*/
+        
+    }
     
     func saveCoordinates(){
         //get current coordinates
@@ -103,11 +134,12 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
             print("AssignedDate:" + String(describing: SettingsData.sharedInstance.assignedDate))
             print("Switch_state:\(SettingsData.sharedInstance.setTracking)")
             
-            trackingDate.date = SettingsData.sharedInstance.assignedDate
+            trackingTime = TrackingTime(context: context)
             trackingTime.timeStamp = date
             trackingTime.latitude = Double((localCoordinate?.latitude)!)
             trackingTime.longitude = Double((localCoordinate?.longitude)!)
-            trackingTime.toTrackingDate = trackingDate
+            
+            
             ad.saveContext()
             
             

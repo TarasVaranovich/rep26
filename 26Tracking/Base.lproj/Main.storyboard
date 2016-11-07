@@ -73,6 +73,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="labelOutlet" destination="sMA-fY-Fuu" id="ksK-gO-mhZ"/>
+                        <outlet property="mapViewOutlet" destination="LlC-iQ-GPO" id="hcB-Xj-oLk"/>
                         <outlet property="sliderOutlet" destination="Kwq-7M-Pbm" id="Yk7-3f-8yp"/>
                     </connections>
                 </viewController>
