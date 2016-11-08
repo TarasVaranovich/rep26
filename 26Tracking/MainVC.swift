@@ -136,14 +136,28 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
             //dateFormatter.dateFormat = "dd MMM yyyy"
             print("Date:" + String(describing: date))
             print("AssignedDate:" + String(describing: SettingsData.sharedInstance.assignedDate))
+            //date casting
+            let castingDate = SettingsData.sharedInstance.assignedDate
+            let castingCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
+            let castingDateComponents = NSDateComponents()
+            castingDateComponents.timeZone = TimeZone.current
+            castingDateComponents.day = (castingCalendar?.component(.day, from: castingDate as! Date))!
+            castingDateComponents.month = (castingCalendar?.component(.month, from: castingDate as! Date))!
+            castingDateComponents.year = (castingCalendar?.component(.year, from: castingDate as! Date))!
+            castingDateComponents.hour = 3
+            castingDateComponents.minute = 0
+            castingDateComponents.second = 0
+            let firstDate = castingCalendar?.date(from: castingDateComponents as DateComponents)
+            castingDateComponents.hour = 27
+            let secondDate = castingCalendar?.date(from: castingDateComponents as DateComponents)
+            print("FirstDate:" + String(describing: firstDate))
+            print("SecondDate:" + String(describing: secondDate))
+            //end of date casting
             print("Switch_state:\(SettingsData.sharedInstance.setTracking)")
-            
             trackingTime = TrackingTime(context: context)
             trackingTime.timeStamp = date
             trackingTime.latitude = Double((localCoordinate?.latitude)!)
             trackingTime.longitude = Double((localCoordinate?.longitude)!)
-            
-            
             ad.saveContext()
             
             

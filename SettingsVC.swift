@@ -12,8 +12,8 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var settingsTableView: UITableView!
     
-    var tableCellNames: [String] = ["","Clear Data","Choose a day", "Set a Frequancy"]
-    var tableCellSeguesNames: [String] = ["","clearSegue","chooseSegue", "frequencySegue"]
+    var tableCellNames: [String] = ["","Choose a day", "Set a Frequancy","Clear Data"]
+    var tableCellSeguesNames: [String] = ["","chooseSegue", "frequencySegue","clearSegue"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
