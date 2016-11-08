@@ -22,8 +22,9 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
     var trackingTimer: Timer!
     ///
     var trackingTime: TrackingTime!
-   
-    //
+    ///
+    var stringTimesSet = [String](repeating: "aB3", count: 1440)//for 1 min frequency in one day
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ConstraintSlider()
@@ -34,7 +35,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        // in individual thread
         if SettingsData.sharedInstance.setTracking{
             trackingTimer = Timer.scheduledTimer(timeInterval: 5, target:self, selector: #selector(MainVC.saveCoordinates), userInfo: nil, repeats: true)
         } else {
@@ -42,13 +43,31 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
             trackingTimer.invalidate()
                }
         }
-        //saveCoordinates()
-        getCoordinates()
+        
+        if SettingsData.sharedInstance.assignedDate !== nil {
+          
+            let startDate = dateCasting(acceptedDate: SettingsData.sharedInstance.assignedDate!).0
+            let endDate = dateCasting(acceptedDate: SettingsData.sharedInstance.assignedDate!).1
+            getCoordinates(rangeStartDate: startDate!, rangeEndDate: endDate!)
+            
+        
+        } else {
+            
+            let todayDate = NSDate()
+            let startDate = dateCasting(acceptedDate: todayDate).0
+            let endDate = dateCasting(acceptedDate: todayDate).1
+            getCoordinates(rangeStartDate: startDate!, rangeEndDate: endDate!)
+            
+        }
+   
     }
     
     @IBAction func sliderSlide(_ sender: UISlider) {
         sliderValue = Int(sliderOutlet.value)
-        labelOutlet.text = String(describing: sliderValue!)
+        let annotation = mapViewOutlet.annotations[sliderValue!]
+        mapViewOutlet.centerCoordinate = annotation.coordinate
+        labelOutlet.text = String(describing: stringTimesSet[sliderValue!])
+        
 
     }
 
@@ -82,39 +101,74 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
         view.contentMode = .redraw
     }
     
-    func getCoordinates(){
-        let fetchRequest: NSFetchRequest<TrackingTime> = TrackingTime.fetchRequest()
-        //let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context ,sectionNameKeyPath: nil , cacheName:nil)
+    func getCoordinates(rangeStartDate: NSDate, rangeEndDate: NSDate){
+     stringTimesSet.removeAll()
+     mapViewOutlet.removeAnnotations(self.mapViewOutlet.annotations)
+     let fetchRequest: NSFetchRequest<TrackingTime> = TrackingTime.fetchRequest()
+     fetchRequest.predicate = NSPredicate(format: "(timeStamp >= %@) AND (timeStamp <= %@)", rangeStartDate as NSDate, rangeEndDate as NSDate)
+     do {
+     
+     let results = try context.fetch(fetchRequest)//try controller.performFetch()
+     var i = 0
+     if results.count>0 {
+     repeat {
+     let resultsDate = results[i].timeStamp as NSDate?
+     let resultsLatitude = results[i].latitude as Double?
+     let resultsLongitude = results[i].longitude as Double?
+     print("\(resultsDate):\(resultsLatitude):\(resultsLongitude):\(results.count)")
+     i+=1
+     stringTimesSet.append(getStringTime(acceptedDate: resultsDate!))
+     print(getStringTime(acceptedDate: resultsDate!))
+     let pin = MKPointAnnotation()
+     
+     pin.coordinate.latitude = resultsLatitude!
+     pin.coordinate.longitude = resultsLongitude!
+     pin.title = "point\(i)"
+     mapViewOutlet.addAnnotation(pin)
+     
+     } while (i<results.count)
+        sliderOutlet.minimumValue = 0
+        sliderOutlet.maximumValue = Float(mapViewOutlet.annotations.count) - 1
+     }
         
-        do {
-            
-            let results = try context.fetch(fetchRequest)//try controller.performFetch()
-            var i = 0
-            if results.count>0 {
-            repeat {
-                let resultsDate = results[i].timeStamp as NSDate?
-                let resultsLatitude = results[i].latitude as Double?
-                let resultsLongitude = results[i].longitude as Double?
-                print("\(resultsDate):\(resultsLatitude):\(resultsLongitude):\(results.count)")
-                i+=1
-                
-                let pin = MKPointAnnotation()
-                
-                pin.coordinate.latitude = resultsLatitude!
-                pin.coordinate.longitude = resultsLongitude!
-                pin.title = "point\(i)"
-                mapViewOutlet.addAnnotation(pin)
-                
-            } while (i<results.count)
-         }
-            
-        } catch{
-            
-            let error = error as NSError
-            print("\(error)")
-            
-        }
- 
+     } catch{
+     
+     let error = error as NSError
+     print("\(error)")
+     
+     }
+     
+     }
+
+    
+    func dateCasting(acceptedDate: NSDate) -> (NSDate?,NSDate?){
+        
+        let castingDate = acceptedDate
+        let castingCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
+        let castingDateComponents = NSDateComponents()
+        castingDateComponents.timeZone = TimeZone.current
+        castingDateComponents.day = (castingCalendar?.component(.day, from: castingDate as Date))!
+        castingDateComponents.month = (castingCalendar?.component(.month, from: castingDate as Date))!
+        castingDateComponents.year = (castingCalendar?.component(.year, from: castingDate as Date))!
+        castingDateComponents.hour = 3
+        castingDateComponents.minute = 0
+        castingDateComponents.second = 0
+        let firstDate = castingCalendar?.date(from: castingDateComponents as DateComponents)
+        castingDateComponents.hour = 27
+        let secondDate = castingCalendar?.date(from: castingDateComponents as DateComponents)
+        print("FirstDate:" + String(describing: firstDate))
+        print("SecondDate:" + String(describing: secondDate))
+
+    return (firstDate as NSDate?, secondDate as NSDate?)
+    
+    }
+    
+    func getStringTime(acceptedDate: NSDate) -> (String){
+        
+        let dateString = "\(acceptedDate)"
+        let dateStringArray = dateString.components(separatedBy: " ")
+        
+        return dateStringArray[1]
     }
     
     func saveCoordinates(){
@@ -130,29 +184,8 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
             //get current date
             //print("hours = \(hour):\(minutes):\(seconds)")
             let date = NSDate()
-            //let calendar = NSCalendar.current
-           
-            //let dateFormatter = DateFormatter()
-            //dateFormatter.dateFormat = "dd MMM yyyy"
             print("Date:" + String(describing: date))
             print("AssignedDate:" + String(describing: SettingsData.sharedInstance.assignedDate))
-            //date casting
-            let castingDate = SettingsData.sharedInstance.assignedDate
-            let castingCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
-            let castingDateComponents = NSDateComponents()
-            castingDateComponents.timeZone = TimeZone.current
-            castingDateComponents.day = (castingCalendar?.component(.day, from: castingDate as! Date))!
-            castingDateComponents.month = (castingCalendar?.component(.month, from: castingDate as! Date))!
-            castingDateComponents.year = (castingCalendar?.component(.year, from: castingDate as! Date))!
-            castingDateComponents.hour = 3
-            castingDateComponents.minute = 0
-            castingDateComponents.second = 0
-            let firstDate = castingCalendar?.date(from: castingDateComponents as DateComponents)
-            castingDateComponents.hour = 27
-            let secondDate = castingCalendar?.date(from: castingDateComponents as DateComponents)
-            print("FirstDate:" + String(describing: firstDate))
-            print("SecondDate:" + String(describing: secondDate))
-            //end of date casting
             print("Switch_state:\(SettingsData.sharedInstance.setTracking)")
             trackingTime = TrackingTime(context: context)
             trackingTime.timeStamp = date
