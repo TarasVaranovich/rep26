@@ -20,9 +20,9 @@ class SettingsVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
         ///---
-        self.settingsTableView.register(ControlCell.self, forCellReuseIdentifier: "contolCell")
-        let nib = UINib(nibName: "contolCell", bundle: nil)
-        self.settingsTableView.register(nib, forCellReuseIdentifier: "contolCell")
+//        self.settingsTableView.register(ControlCell.self, forCellReuseIdentifier: "contolCell")
+//        let nib = UINib(nibName: "contolCell", bundle: nil)
+//        self.settingsTableView.register(nib, forCellReuseIdentifier: "contolCell")
         
     }
     

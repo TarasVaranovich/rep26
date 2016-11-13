@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		760C316C1DD30C3500DDBCCD /* FrequencySpaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760C316A1DD30C3500DDBCCD /* FrequencySpaceCell.swift */; };
+		760C316D1DD30C3500DDBCCD /* FrequencySpaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 760C316B1DD30C3500DDBCCD /* FrequencySpaceCell.xib */; };
+		760C31701DD30C5E00DDBCCD /* FrequencyControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760C316E1DD30C5E00DDBCCD /* FrequencyControlCell.swift */; };
+		760C31711DD30C5E00DDBCCD /* FrequencyControlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 760C316F1DD30C5E00DDBCCD /* FrequencyControlCell.xib */; };
 		76112E7C1DCE614300B4367B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76112E7B1DCE614300B4367B /* AppDelegate.swift */; };
 		76112E7E1DCE614300B4367B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76112E7D1DCE614300B4367B /* MainVC.swift */; };
 		76112E811DCE614300B4367B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76112E7F1DCE614300B4367B /* Main.storyboard */; };
@@ -16,6 +20,7 @@
 		76112E941DCE614300B4367B /* _6TrackingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76112E931DCE614300B4367B /* _6TrackingTests.swift */; };
 		76112E9F1DCE614300B4367B /* _6TrackingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76112E9E1DCE614300B4367B /* _6TrackingUITests.swift */; };
 		7688E13F1DCF5EFB0027814F /* DateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688E13E1DCF5EFB0027814F /* DateVC.swift */; };
+		768AC4341DD251B6006B58C2 /* FrequencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768AC4331DD251B6006B58C2 /* FrequencyVC.swift */; };
 		76B171BD1DCF0D3F003CD4B4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B171BC1DCF0D3F003CD4B4 /* SettingsVC.swift */; };
 		76B171C31DCF0EB1003CD4B4 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B171C21DCF0EB1003CD4B4 /* Slider.swift */; };
 		76B171C61DCF1468003CD4B4 /* TrackingSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B171C41DCF1468003CD4B4 /* TrackingSwitchCell.swift */; };
@@ -47,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		760C316A1DD30C3500DDBCCD /* FrequencySpaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencySpaceCell.swift; sourceTree = "<group>"; };
+		760C316B1DD30C3500DDBCCD /* FrequencySpaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FrequencySpaceCell.xib; sourceTree = "<group>"; };
+		760C316E1DD30C5E00DDBCCD /* FrequencyControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyControlCell.swift; sourceTree = "<group>"; };
+		760C316F1DD30C5E00DDBCCD /* FrequencyControlCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FrequencyControlCell.xib; sourceTree = "<group>"; };
 		76112E781DCE614300B4367B /* 26Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 26Tracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76112E7B1DCE614300B4367B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = 26Tracking/AppDelegate.swift; sourceTree = "<group>"; };
 		76112E7D1DCE614300B4367B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = 26Tracking/MainVC.swift; sourceTree = "<group>"; };
@@ -62,6 +71,7 @@
 		76112E9E1DCE614300B4367B /* _6TrackingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _6TrackingUITests.swift; sourceTree = "<group>"; };
 		76112EA01DCE614300B4367B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7688E13E1DCF5EFB0027814F /* DateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateVC.swift; sourceTree = "<group>"; };
+		768AC4331DD251B6006B58C2 /* FrequencyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyVC.swift; sourceTree = "<group>"; };
 		76B171BC1DCF0D3F003CD4B4 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		76B171C21DCF0EB1003CD4B4 /* Slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		76B171C41DCF1468003CD4B4 /* TrackingSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingSwitchCell.swift; sourceTree = "<group>"; };
@@ -171,6 +181,10 @@
 				76B171CC1DCF186A003CD4B4 /* ControlCell.swift */,
 				76B171CD1DCF186A003CD4B4 /* ControlCell.xib */,
 				76B6DF391DD1039900E58072 /* ClearButton.swift */,
+				760C316A1DD30C3500DDBCCD /* FrequencySpaceCell.swift */,
+				760C316B1DD30C3500DDBCCD /* FrequencySpaceCell.xib */,
+				760C316E1DD30C5E00DDBCCD /* FrequencyControlCell.swift */,
+				760C316F1DD30C5E00DDBCCD /* FrequencyControlCell.xib */,
 			);
 			name = View;
 			path = ..;
@@ -184,6 +198,7 @@
 				76112E7D1DCE614300B4367B /* MainVC.swift */,
 				7688E13E1DCF5EFB0027814F /* DateVC.swift */,
 				76B6DF371DD1029100E58072 /* ClearDataVC.swift */,
+				768AC4331DD251B6006B58C2 /* FrequencyVC.swift */,
 			);
 			name = Controller;
 			path = ..;
@@ -321,7 +336,9 @@
 				76B171C71DCF1468003CD4B4 /* TrackingSwitchCell.xib in Resources */,
 				76112E891DCE614300B4367B /* LaunchScreen.storyboard in Resources */,
 				76B171CF1DCF186A003CD4B4 /* ControlCell.xib in Resources */,
+				760C316D1DD30C3500DDBCCD /* FrequencySpaceCell.xib in Resources */,
 				76112E861DCE614300B4367B /* Assets.xcassets in Resources */,
+				760C31711DD30C5E00DDBCCD /* FrequencyControlCell.xib in Resources */,
 				76112E811DCE614300B4367B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,9 +367,12 @@
 				76112E7E1DCE614300B4367B /* MainVC.swift in Sources */,
 				76B171BD1DCF0D3F003CD4B4 /* SettingsVC.swift in Sources */,
 				76112E7C1DCE614300B4367B /* AppDelegate.swift in Sources */,
+				768AC4341DD251B6006B58C2 /* FrequencyVC.swift in Sources */,
 				76112E841DCE614300B4367B /* _6Tracking.xcdatamodeld in Sources */,
 				76B6DF351DD0EDA800E58072 /* TrackingTime+CoreDataClass.swift in Sources */,
+				760C316C1DD30C3500DDBCCD /* FrequencySpaceCell.swift in Sources */,
 				76B171C61DCF1468003CD4B4 /* TrackingSwitchCell.swift in Sources */,
+				760C31701DD30C5E00DDBCCD /* FrequencyControlCell.swift in Sources */,
 				76B1A99E1DD090500024D60F /* SettingsData.swift in Sources */,
 				76B171CE1DCF186A003CD4B4 /* ControlCell.swift in Sources */,
 				7688E13F1DCF5EFB0027814F /* DateVC.swift in Sources */,

@@ -23,7 +23,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
     ///
     var trackingTime: TrackingTime!
     ///
-    var stringTimesSet = [String](repeating: "aB3", count: 1440)//for 1 min frequency in one day
+    var stringTimesSet = [String](repeating: " ", count: 1440)//for 1 min frequency in one day
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +31,23 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
         //sliderOutlet.transform = CGAffineTransform.init(rotationAngle: CGFloat(CFloat(-M_PI/2)))
         sliderValue = Int(sliderOutlet.value)
         labelOutlet.text = String(describing: sliderValue!)
-        // declare variables
+        
+        // 
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest // location coordinates accuracy
+        locationManager?.requestWhenInUseAuthorization() // ask user for hes private location
+        locationManager?.startMonitoringSignificantLocationChanges() // track current location changes
+        //mapViewOutlet.mapType = MKMapType.hybridFlyover
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
         // in individual thread
+        let interval = SettingsData.sharedInstance.timerInterval
         if SettingsData.sharedInstance.setTracking{
-            trackingTimer = Timer.scheduledTimer(timeInterval: 5, target:self, selector: #selector(MainVC.saveCoordinates), userInfo: nil, repeats: true)
+            
+            trackingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(interval), target:self, selector: #selector(MainVC.saveCoordinates), userInfo: nil, repeats: true)
+            
         } else {
             if trackingTimer != nil {
             trackingTimer.invalidate()
@@ -63,6 +73,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
     }
     
     @IBAction func sliderSlide(_ sender: UISlider) {
+       
         sliderValue = Int(sliderOutlet.value)
         let annotation = mapViewOutlet.annotations[sliderValue!]
         mapViewOutlet.centerCoordinate = annotation.coordinate
@@ -108,7 +119,9 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
      fetchRequest.predicate = NSPredicate(format: "(timeStamp >= %@) AND (timeStamp <= %@)", rangeStartDate as NSDate, rangeEndDate as NSDate)
      do {
      
-     let results = try context.fetch(fetchRequest)//try controller.performFetch()
+       
+            let results = try context.fetch(fetchRequest)
+        
      var i = 0
      if results.count>0 {
      repeat {
@@ -187,7 +200,11 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
             print("Date:" + String(describing: date))
             print("AssignedDate:" + String(describing: SettingsData.sharedInstance.assignedDate))
             print("Switch_state:\(SettingsData.sharedInstance.setTracking)")
-            trackingTime = TrackingTime(context: context)
+            if #available(iOS 10.0, *) {
+                trackingTime = TrackingTime(context: context)
+            } else {
+                // Fallback on earlier versions
+            }
             trackingTime.timeStamp = date
             trackingTime.latitude = Double((localCoordinate?.latitude)!)
             trackingTime.longitude = Double((localCoordinate?.longitude)!)

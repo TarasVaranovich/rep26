@@ -22,5 +22,8 @@ class DateVC: UIViewController {
         
     }
     
-
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        view.contentMode = .redraw
+    }
 }

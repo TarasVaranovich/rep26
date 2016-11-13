@@ -14,5 +14,7 @@ class SettingsData { // singletone
     private init(){}
     var assignedDate: NSDate? = nil
     var setTracking: Bool = false
+    var activeCellName: String = "3 sec"
+    var timerInterval: Int16 = 3
     
 }
