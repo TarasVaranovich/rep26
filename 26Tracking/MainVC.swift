@@ -28,6 +28,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         ConstraintSlider()
+        //mapViewOutlet.isHidden = true
         //sliderOutlet.transform = CGAffineTransform.init(rotationAngle: CGFloat(CFloat(-M_PI/2)))
         sliderValue = Int(sliderOutlet.value)
         labelOutlet.text = String(describing: sliderValue!)
@@ -38,8 +39,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
         locationManager?.requestWhenInUseAuthorization() // ask user for hes private location
         locationManager?.startMonitoringSignificantLocationChanges() // track current location changes
         //mapViewOutlet.mapType = MKMapType.hybridFlyover
-        
-        
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         // in individual thread
@@ -75,18 +75,20 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
     @IBAction func sliderSlide(_ sender: UISlider) {
        
         sliderValue = Int(sliderOutlet.value)
-        let annotation = mapViewOutlet.annotations[sliderValue!]
-        mapViewOutlet.centerCoordinate = annotation.coordinate
-        labelOutlet.text = String(describing: stringTimesSet[sliderValue!])
-        
-
+        if (!mapViewOutlet.annotations.isEmpty) {
+            let annotation = mapViewOutlet.annotations[sliderValue!]
+            mapViewOutlet.centerCoordinate = annotation.coordinate
+            labelOutlet.text = String(describing: stringTimesSet[sliderValue!])
+        } else {
+            labelOutlet.text = ""
+        }
     }
 
     @IBAction func exitAction(_ sender: UIBarButtonItem) {
         exit(0)
     }
     func ConstraintSlider(){
-        sliderOutlet.removeConstraints(sliderOutlet.constraints)
+        self.view.removeConstraints(sliderOutlet.constraints)
         let widthS = NSLayoutConstraint(item:sliderOutlet,
                                            attribute:NSLayoutAttribute.width,
                                            relatedBy: NSLayoutRelation.equal,
@@ -103,6 +105,7 @@ class MainVC: UIViewController , CLLocationManagerDelegate{
                                            constant:-20)
         trailingS.isActive = true
         widthS.isActive = true
+        
         self.view.addConstraints([trailingS, widthS])
         
     }
