@@ -9,38 +9,56 @@
 import UIKit
 
 class FrequencyVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
     @IBOutlet weak var frequencyTableView: UITableView!
+    
     var frequencyTableViewCellNames: [String] = ["","3 sec","1 min", "5 min","10 min","15 min","30 min","1 hr"]
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         frequencyTableView.delegate = self
         frequencyTableView.dataSource = self
 
    
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 //describes a table columns count
+        
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8 //describes a table lines count
+        
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0{
-            let cell = Bundle.main.loadNibNamed("FrequencySpaceCell", owner: self, options: nil)?.first as! FrequencySpaceCell
+        
+        if indexPath.row == 0 {
+            
+            let cell = Bundle.main.loadNibNamed("FrequencySpaceCell",
+                                                owner: self,
+                                                options: nil)?.first as!
+                                                FrequencySpaceCell
             
             return cell
+            
         } else {
             
-            let cell = Bundle.main.loadNibNamed("FrequencyControlCell", owner: self, options: nil)?.first as! FrequencyControlCell
+            let cell = Bundle.main.loadNibNamed("FrequencyControlCell",
+                                                owner: self,
+                                                options: nil)?.first as!FrequencyControlCell
             cell.frequencyControlCellLabel.text = frequencyTableViewCellNames[indexPath.row]
+            
             if cell.frequencyControlCellLabel.text == SettingsData.sharedInstance.activeCellName{
-            cell.frequencyTickLabel.text = "✓"
+                
+                cell.frequencyTickLabel.text = "✓"
+                
             } else {
-            cell.frequencyTickLabel.text = ""
+                
+                cell.frequencyTickLabel.text = ""
             }
             return cell
         }
@@ -48,7 +66,8 @@ class FrequencyVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0{
+        
+        if indexPath.row == 0 {
             
             return 50
             
@@ -57,14 +76,14 @@ class FrequencyVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /*if frequencyTableViewCellNames[indexPath.row] != ""{
-           
-        }*/
-        if let cell = frequencyTableView.cellForRow(at: indexPath) as? FrequencyControlCell {
+        
+        if let cell = frequencyTableView.cellForRow(at: indexPath) as?
+            FrequencyControlCell {
             
             
             let cellName = cell.frequencyControlCellLabel.text
             SettingsData.sharedInstance.activeCellName = cellName!
+            
             switch cellName! {
                 
             case frequencyTableViewCellNames[1]:
@@ -107,4 +126,4 @@ class FrequencyVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
     }
 
-   }
+}

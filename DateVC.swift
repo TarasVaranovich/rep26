@@ -16,6 +16,7 @@ class DateVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         
         SettingsData.sharedInstance.assignedDate = datePicker.date as NSDate?
@@ -25,5 +26,6 @@ class DateVC: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
         view.contentMode = .redraw
+        
     }
 }

@@ -13,6 +13,7 @@ class Slider: UISlider {
     override func awakeFromNib() {
         
         self.transform = CGAffineTransform.init(rotationAngle: CGFloat(CFloat(-M_PI/2)))
+        
     }
 
 }

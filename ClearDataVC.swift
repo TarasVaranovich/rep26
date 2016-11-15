@@ -17,26 +17,32 @@ class ClearDataVC: UIViewController {
     @IBOutlet weak var stackViewOutlet: UIStackView!
     
     @IBAction func clearButtonAction(_ sender: UIButton) {
-        //problems with a time zone + 3 hour
+  
         let startDate = startRangeDatePicker.date
         let endDate = endRangeDatePicker.date
         
         let fetchRequest: NSFetchRequest<TrackingTime> = TrackingTime.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "(timeStamp >= %@) AND (timeStamp <= %@)", startDate as NSDate, endDate as NSDate)
+        fetchRequest.predicate = NSPredicate(format:
+                                             "(timeStamp >= %@) AND (timeStamp <= %@)",
+                                             startDate as NSDate,
+                                             endDate as NSDate)
 
         do {
             
-            let results = try context.fetch(fetchRequest)//try controller.performFetch()
+            let results = try context.fetch(fetchRequest)
             var i = 0
-            if results.count>0{
+            
+            if results.count > 0 {
+                
             repeat {
                 
                     context.delete(results[i])
                     ad.saveContext()
-             print("Item\(i) is deleted. Range:\(startDate):\(endDate)")
-                i+=1
-            } while (i < results.count)
-          }
+                    print("Item\(i) is deleted. Range:\(startDate):\(endDate)")
+                    i+=1
+                
+                } while (i < results.count)
+            }
             
         } catch{
             
@@ -47,6 +53,7 @@ class ClearDataVC: UIViewController {
 
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -55,6 +62,7 @@ class ClearDataVC: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
         view.contentMode = .redraw
+        
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             
             stackViewOutlet.axis = .horizontal

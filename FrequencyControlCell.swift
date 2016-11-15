@@ -9,8 +9,8 @@
 import UIKit
 
 class FrequencyControlCell: UITableViewCell {
+    
     @IBOutlet weak var frequencyControlCellLabel: UILabel!
-
     @IBOutlet weak var frequencyTickLabel: UILabel!
    
     override func awakeFromNib() {

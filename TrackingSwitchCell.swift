@@ -14,26 +14,30 @@ class TrackingSwitchCell: UITableViewCell {
     
     @IBAction func changeSwitchState(_ sender: UISwitch) {
         
-        if switchOutlet.isOn{
-        
+        if switchOutlet.isOn {
+            
             SettingsData.sharedInstance.setTracking = true
-        
+            
         } else {
-        
+            
             SettingsData.sharedInstance.setTracking = false
             
         }
         
     }
+    
     override func awakeFromNib() {
-        super.awakeFromNib()
-        switchOutlet.isOn = SettingsData.sharedInstance.setTracking
+         super.awakeFromNib()
+        
+         switchOutlet.isOn = SettingsData.sharedInstance.setTracking
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        
     }
     
 }

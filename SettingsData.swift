@@ -12,6 +12,7 @@ class SettingsData { // singletone
     
     static var sharedInstance = SettingsData()
     private init(){}
+    
     var assignedDate: NSDate? = nil
     var setTracking: Bool = false
     var activeCellName: String = "3 sec"

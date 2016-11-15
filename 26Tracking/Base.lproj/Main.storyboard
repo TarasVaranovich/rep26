@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LlC-iQ-GPO">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LlC-iQ-GPO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMA-fY-Fuu">
@@ -59,14 +59,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ej5-Go-UTd">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; Exit" id="NbP-NF-dob">
-                            <color key="tintColor" red="0.21850691380000001" green="1" blue="0.21063719750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="leftBarButtonItem" title="&lt; " id="NbP-NF-dob">
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="exitAction:" destination="BYZ-38-t0r" id="yLi-bk-ud5"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Options&gt;" id="C7N-2i-Qyc">
-                            <color key="tintColor" red="0.21850691380000001" green="1" blue="0.21063719750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="wJK-To-gpo" kind="show" id="wgB-B0-NTE"/>
                             </connections>
@@ -102,7 +102,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="27"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iHg-Cl-50m" id="86F-kW-D0G">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="26"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="26.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -185,7 +185,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ljz-Ob-6BX" id="FkA-KD-q7V">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -227,7 +227,9 @@
                                     <constraint firstAttribute="width" constant="80" id="jM8-Ah-DMj"/>
                                     <constraint firstAttribute="height" constant="40" id="uA3-iq-TLi"/>
                                 </constraints>
-                                <state key="normal" title="Clear"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clearButtonAction:" destination="axl-UL-fFq" eventType="touchUpInside" id="hTu-Ct-2kE"/>
                                 </connections>
@@ -288,11 +290,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W54-vf-JIS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Amm-HS-Lc3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Amm-HS-Lc3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.21850691380000001" green="1" blue="0.21063719750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
