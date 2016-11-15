@@ -128,7 +128,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        ConstraintSlider()
+        //ConstraintSlider()
         view.contentMode = .redraw
     }
     
